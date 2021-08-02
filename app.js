@@ -11,19 +11,43 @@ const answerBtnDiv = document.querySelector(".answerButtons")
 var playerScore = 0 
 const bioQuestions = [
     { question: "I was born in Akron, Ohio and I star in Space Jam 2 ",
-        answerA:"Andy",
-        answerB: "Mo",
-        answerC:"LeBron",
-        answerD:"Bugs Bunny",
-        correctAnswer: "LeBron"
+        answerA:"Kevin Durant",
+        answerB: "Kyrie irving",
+        answerC:"LeBron James",
+        answerD:"Jayson Tatum",
+        correctAnswer: "LeBron James"
     },
-    { question: "I was born in Akron, Ohio and but I never played for the Cavaliers ",
-        answerA:"Andy",
-        answerB: "Curry",
-        answerC:"LeBron",
-        answerD:"Bugs Bunny",
-        correctAnswer:"Curry"
-    }            
+    { question: "I was named after the japanese steak ",
+        answerA:"Giannis Antetekounpo",
+        answerB: "Steph Curry",
+        answerC:"Kobe Bryant",
+        answerD:"Kawhi Leonard",
+        correctAnswer:"Kobe Bryant"
+    }, 
+    {
+        question:"I have been to 6 finals and never lost",
+        answerA: "Shaquille O'Neal",
+        answerB:"Michael Jordan",
+        answerC:"Allen Iverson",
+        answerD:"Tim Duncan",
+        correctAnswer:"Michael Jordan"
+    },  
+    {
+        question:"I was once married Eva Longoria",
+        answerA:"Tony Parker",
+        answerB:"Kevin Love",
+        answerC:"Carmelo Anthony",
+        answerD:"Vince Carter",
+        correctAnswer:"Tony Parker"
+    }, 
+    {
+        question:'filler',
+        answerA:'filler',
+        answerB:'filler',
+        answerC:'filler',
+        answerD:'filler',
+        correctAnswer:'filler'
+    }        
 ]
 
 
@@ -42,21 +66,31 @@ function startGame() {
 }
 letsGo.addEventListener("click", startGame)
 
-function checkAnswer (event){
- let selected = event.target.value
-  answerQuesOne = bioQuestions[0][selected]
-  console.log(bioQuestions[0].correctAnswer)
-  if(bioQuestions[0].correctAnswer === answerQuesOne){
-      playerScore +=20
-      console.log(playerScore)
-      score.innerText = playerScore
-    console.log("correct!")
-    question2()
-      }
-    else{
+function checkAnswer(event) {
+    let currentQuestionIndex = questionNum.innerHTML - 1
+    console.log(currentQuestionIndex)
+    let selected = event.target.value
+    let playerAnswer = bioQuestions[currentQuestionIndex][selected]
+    console.log(playerAnswer, "is the player's answer")
+    if (bioQuestions[currentQuestionIndex].correctAnswer === playerAnswer) {
+        playerScore += 20
+        score.innerText = playerScore
+        console.log("correct!")
+        if (currentQuestionIndex == 0) {
+            question2()
+        } else if (currentQuestionIndex == 1) {
+            question3()
+        }
+        else if (currentQuestionIndex == 2){
+            question4()
+        }
+        else if (currentQuestionIndex == 3){
+            question5()
+        }
+        
+    } else {
         console.log("incorrect")
-    }
-
+    }    
 }
 
 answerbuttonC.addEventListener("click",checkAnswer)
@@ -72,17 +106,31 @@ function question2() {
     answerbuttonC.innerText = bioQuestions[1].answerC
     answerbuttonD.innerText = bioQuestions[1].answerD
 }
-// function checkAnswer2 (event){
-//     let selected2 = event.target.value
-//      answerQues2 = bioQuestions[1][selected2]
-//      console.log(bioQuestions[1].correctAnswer)
-//      if(bioQuestions[1].correctAnswer === answerQues2){
-//          playerScore +=20
-//          console.log(playerScore)
-//          score.innerText = playerScore
-//        console.log("correct!")
-//        question2()
-//          }
-//        else{
-//            console.log("incorrect")
-//        }
+
+function question3() {
+    question.innerText = bioQuestions[2].question
+    questionNum.innerHTML ="3"
+    answerbuttonA.innerText = bioQuestions[2].answerA
+    answerbuttonB.innerText = bioQuestions[2].answerB
+    answerbuttonC.innerText = bioQuestions[2].answerC
+    answerbuttonD.innerText = bioQuestions[2].answerD
+}
+
+function question4() {
+    question.innerText = bioQuestions[3].question
+    questionNum.innerHTML ="4"
+    answerbuttonA.innerText = bioQuestions[3].answerA
+    answerbuttonB.innerText = bioQuestions[3].answerB
+    answerbuttonC.innerText = bioQuestions[3].answerC
+    answerbuttonD.innerText = bioQuestions[3].answerD
+}
+function question5() {
+    question.innerText = bioQuestions[4].question
+    questionNum.innerHTML ="4"
+    answerbuttonA.innerText = bioQuestions[4].answerA
+    answerbuttonB.innerText = bioQuestions[4].answerB
+    answerbuttonC.innerText = bioQuestions[4].answerC
+    answerbuttonD.innerText = bioQuestions[4].answerD
+}
+
+
