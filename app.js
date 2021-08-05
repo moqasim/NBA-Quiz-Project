@@ -1,6 +1,7 @@
 //Intializing all my variables.
 const letsGo = document.querySelector("#btn")
 const reset = document.querySelector(".resetButton")
+const resetModal = document.querySelector(".resetButtonModal")
 const quizArea = document.querySelector(".bioArea")
 const question = document.querySelector("#questions")
 const questionNum = document.querySelector(".questionNumber")
@@ -10,6 +11,8 @@ const answerbuttonB = document.querySelector(".b")
 const answerbuttonC = document.querySelector(".c")
 const answerbuttonD = document.querySelector(".d")
 const answerBtnDiv = document.querySelector(".answerButtons")
+const modal = document.querySelector(".modal")
+const close = document.querySelector(".modal-button")
 var playerScore = 0 
 //Put my trivia questions in objects within an array.
 const bioQuestions = [
@@ -101,6 +104,7 @@ function startGame() {
     console.log(bioQuestions[0].question)
     question.innerText = bioQuestions[0].question
     letsGo.style.display = "none"
+    modal.style.display = "none"
     questionNum.innerHTML = "1"
     score.innerHTML ="0"
     answerbuttonA.innerText = bioQuestions[0].answerA
@@ -112,6 +116,18 @@ function startGame() {
 //These event listeners fire up my startGame function.
 letsGo.addEventListener("click", startGame)
 reset.addEventListener("click",startGame)
+resetModal.addEventListener("click", startGame)
+
+// function(){
+//     questionNum.innerText = 0
+//     playerScore.innerText = 0
+//     letsGo.style.display = "block"
+//     answerbuttonA.style.display = "none"
+//     answerbuttonB.style.display = "none"
+//     answerbuttonC.style.display = "none"
+//     answerbuttonD.style.display = "none"
+//     question.innerText = "you ready?"}
+
 //This function is what checks the answer that the user clicked on.
 function checkAnswer(event) {
     let currentQuestionIndex = questionNum.innerHTML - 1
@@ -124,6 +140,7 @@ function checkAnswer(event) {
         score.innerText = playerScore
         console.log("correct!")
         event.target.style.backgroundColor = "lightgreen"
+    
         
       
         
@@ -161,6 +178,9 @@ function checkAnswer(event) {
     else if (currentQuestionIndex == 8){
         setTimeout(question10,850)
     }  
+    else if (currentQuestionIndex == 9){
+        openModal()
+    }
 }
 
 answerbuttonC.addEventListener("click",checkAnswer)
@@ -279,8 +299,18 @@ function question10() {
     answerbuttonD.style.backgroundColor = ""
 }
 
-function resetGame() {
-    reset.style.display 
+function openModal() {
+    modal.style.display = "block"
 }
+
+// function closeModal() {
+//     modal.style.display = "none"
+//     console.log('hello')
+// }
+
+// close.addEventListener("click", closeModal)
+
+
+
 
 
