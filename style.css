@@ -1,3 +1,8 @@
+:root{
+    --hue-wrong: 0;
+    --hue-correct: 145;
+}
+
 body{
     background-color: white;
 }
@@ -94,6 +99,14 @@ h1{
 .answerButtons{
     display: none;
 }
+.answer-button.correct{
+    --hue:var(--hue-correct);
+
+}
+.answer-button.wrong{
+--hue:var(--hue-wrong);
+}
+
 
 img{
     height: 75px;
@@ -120,4 +133,27 @@ border: 1px solid;
     color: red;
     border-radius: 40px;
     border: 10px;
+}
+.modal{
+    background-color:black;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100;
+    z-index:1;
+    overflow: auto;
+    align-items: center;
+}
+.textbox{
+    background-color: white;
+    height: 200px;
+    width: 200px;
+    border-radius: 2px;
+    margin-left: ;
+    box-shadow: 0 2px 2px rgba(0, 0, 0,0.2);
+    line-height: 120%;
+    color: red;
+    align-items: center;
+    
 }

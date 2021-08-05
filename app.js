@@ -1,3 +1,4 @@
+//Intializing all my variables.
 const letsGo = document.querySelector("#btn")
 const reset = document.querySelector(".resetButton")
 const quizArea = document.querySelector(".bioArea")
@@ -10,6 +11,7 @@ const answerbuttonC = document.querySelector(".c")
 const answerbuttonD = document.querySelector(".d")
 const answerBtnDiv = document.querySelector(".answerButtons")
 var playerScore = 0 
+//Put my trivia questions in objects within an array.
 const bioQuestions = [
     { question: "I was born in Akron, Ohio and I star in Space Jam 2 ",
         answerA:"Kevin Durant",
@@ -94,7 +96,7 @@ const bioQuestions = [
 
 
 
-
+//Here is my function to start the game when clicked let's go.
 function startGame() {
     console.log(bioQuestions[0].question)
     question.innerText = bioQuestions[0].question
@@ -107,9 +109,10 @@ function startGame() {
     answerbuttonD.innerText = bioQuestions[0].answerD
     answerBtnDiv.style.display = "block"
 }
+//These event listeners fire up my startGame function.
 letsGo.addEventListener("click", startGame)
-reset.addEventListener("click",startGame )
-
+reset.addEventListener("click",startGame)
+//This function is what checks the answer that the user clicked on.
 function checkAnswer(event) {
     let currentQuestionIndex = questionNum.innerHTML - 1
     console.log(currentQuestionIndex)
@@ -120,37 +123,43 @@ function checkAnswer(event) {
         playerScore += 20
         score.innerText = playerScore
         console.log("correct!")
+        event.target.style.backgroundColor = "lightgreen"
+        
+      
         
         
         
     } else {
         console.log("incorrect")
+        let incorrectAnswer = event.target
+        incorrectAnswer.style.backgroundColor = "orange"
+        
     }  
     if (currentQuestionIndex == 0) {
-        question2()
+        setTimeout(question2,550)
     } else if (currentQuestionIndex == 1) {
-        question3()
+        setTimeout(question3,850)
     }
     else if (currentQuestionIndex == 2){
-        question4()
+        setTimeout(question4,850)
     }
     else if (currentQuestionIndex == 3){
-        question5()
+        setTimeout(question5,850)
     }
     else if (currentQuestionIndex == 4){
-        question6()
+        setTimeout(question6,850)
     }
     else if (currentQuestionIndex == 5){
-        question7()
+        setTimeout(question7,850)
     }
     else if (currentQuestionIndex == 6){
-        question8()
+        setTimeout(question8,850)
     }
     else if (currentQuestionIndex == 7){
-        question9()
+        setTimeout(question9,850)
     }
     else if (currentQuestionIndex == 8){
-        question10()
+        setTimeout(question10,850)
     }  
 }
 
@@ -166,6 +175,10 @@ function question2() {
     answerbuttonB.innerText = bioQuestions[1].answerB
     answerbuttonC.innerText = bioQuestions[1].answerC
     answerbuttonD.innerText = bioQuestions[1].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 
 function question3() {
@@ -175,6 +188,10 @@ function question3() {
     answerbuttonB.innerText = bioQuestions[2].answerB
     answerbuttonC.innerText = bioQuestions[2].answerC
     answerbuttonD.innerText = bioQuestions[2].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 
 function question4() {
@@ -184,6 +201,10 @@ function question4() {
     answerbuttonB.innerText = bioQuestions[3].answerB
     answerbuttonC.innerText = bioQuestions[3].answerC
     answerbuttonD.innerText = bioQuestions[3].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 function question5() {
     question.innerText = bioQuestions[4].question
@@ -192,6 +213,10 @@ function question5() {
     answerbuttonB.innerText = bioQuestions[4].answerB
     answerbuttonC.innerText = bioQuestions[4].answerC
     answerbuttonD.innerText = bioQuestions[4].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 function question6() {
     question.innerText = bioQuestions[5].question
@@ -200,6 +225,10 @@ function question6() {
     answerbuttonB.innerText = bioQuestions[5].answerB
     answerbuttonC.innerText = bioQuestions[5].answerC
     answerbuttonD.innerText = bioQuestions[5].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 function question7() {
     question.innerText = bioQuestions[6].question
@@ -208,6 +237,10 @@ function question7() {
     answerbuttonB.innerText = bioQuestions[6].answerB
     answerbuttonC.innerText = bioQuestions[6].answerC
     answerbuttonD.innerText = bioQuestions[6].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 function question8() {
     question.innerText = bioQuestions[7].question
@@ -216,6 +249,10 @@ function question8() {
     answerbuttonB.innerText = bioQuestions[7].answerB
     answerbuttonC.innerText = bioQuestions[7].answerC
     answerbuttonD.innerText = bioQuestions[7].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 function question9() {
     question.innerText = bioQuestions[8].question
@@ -224,6 +261,10 @@ function question9() {
     answerbuttonB.innerText = bioQuestions[8].answerB
     answerbuttonC.innerText = bioQuestions[8].answerC
     answerbuttonD.innerText = bioQuestions[8].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 function question10() {
     question.innerText = bioQuestions[9].question
@@ -232,8 +273,14 @@ function question10() {
     answerbuttonB.innerText = bioQuestions[9].answerB
     answerbuttonC.innerText = bioQuestions[9].answerC
     answerbuttonD.innerText = bioQuestions[9].answerD
+    answerbuttonA.style.backgroundColor =""
+    answerbuttonB.style.backgroundColor = ""
+    answerbuttonC.style.backgroundColor = ""
+    answerbuttonD.style.backgroundColor = ""
 }
 
-
+function resetGame() {
+    reset.style.display 
+}
 
 
